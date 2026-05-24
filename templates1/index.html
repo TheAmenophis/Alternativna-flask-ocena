@@ -6,5 +6,21 @@
 </head>
 <body>
     <h1>Osebni zapiski</h1>
+    <a href="/new" class="btn">+ Dodaj</a>
+
+    {% if notes %}
+        {& for note in notes&}
+            <div class="note">
+                <h2>{{ note.title }}</h2>
+                <p>{{ note.content }}</p>
+                <div class="actions">
+                    <a href="/edit/{{ note.id }}">Edit</a>
+                    <a href="/delete/{{ note.id }}">Delete</a>
+                </div>
+            </div>
+        {& endfor &}
+    {& else &}
+        <p>Ni zapiskov</p>
+    {& endif &}
 </body>
 </html>
