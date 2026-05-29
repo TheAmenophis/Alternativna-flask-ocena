@@ -60,5 +60,21 @@ def dashboard():
 
     return render_template("dashboard.html", user=session["user"], notes=userNotes)
 
+@app.route("/saveNote", methods=["POST"])
+def saveNote():
+    if request.method == "POST":
+        data = request.form
+        print(data)
+
+        notes.insert({'username': session["user"], 'title': data["title"], 'content': data["content"]})
+
+        return {"status": 200}
+
+@app.route("/logout", methods=["GET"])
+def logout():
+    session.clear()
+
+    return {"status": 200}
+
 if __name__ == "__main__":
     app.run(debug=True, port=5000)
