@@ -56,7 +56,10 @@ def dashboard():
         return redirect("/login")
     
 
-    userNotes = notes.search(Notes.username == session["user"])
+    userNotes = [
+        {**note, "id": note.doc_id}
+        for note in notes.search(Notes.username == session["user"])
+    ]
 
     return render_template("dashboard.html", user=session["user"], notes=userNotes)
 
@@ -69,6 +72,12 @@ def saveNote():
         notes.insert({'username': session["user"], 'title': data["title"], 'content': data["content"]})
 
         return {"status": 200}
+
+@app.route("/deleteNote", methods=["POST"])
+def deleteNote():
+    note_id = request.form.get("id")
+    db.table("notes").remove(doc_ids=[int(note_id)])
+    return "OK"
 
 @app.route("/logout", methods=["GET"])
 def logout():

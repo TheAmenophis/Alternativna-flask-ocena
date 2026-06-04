@@ -1,1 +1,1 @@
-{"users": {"1": {"username": "admin", "password": "123", "note": ""}}, "notes": {"1": {"username": "admin", "title": "test", "content": "zapisk "}}}
+{"users": {"1": {"username": "admin", "password": "123", "note": ""}, "2": {"username": "aljaz", "password": "aljaz", "note": ""}}, "notes": {"4": {"username": "admin", "title": "test", "content": "Ce mas 1 jabolko pa dodas se 2 jih nimas vec kot 5"}, "5": {"username": "aljaz", "title": "primer", "content": "bi reku d mas vsaj 6"}}}

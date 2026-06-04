@@ -48,6 +48,21 @@
             contentBox.innerText = "";
             window.location.reload();
         }
+
+
+        function deleteNote(id) {
+            $.ajax({
+
+            'url' : '/deleteNote',
+            'type' : 'POST',
+            'data' : {
+                'id': id
+            },
+            'success' : function() {
+                window.location.reload();
+            }
+        })
+    }
     </script>
 
     <h1>Moji Zapiski</h1>
@@ -61,6 +76,7 @@
     <div class="note-div">
         <h2>{{ note.title }}</h2>
         <p>{{ note.content }}</p>
+        <button type="button" onclick="deleteNote('{{ note.id }}')">Izbrisi</button>
     </div>
     {% endfor %}
 
