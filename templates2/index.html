@@ -3,8 +3,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Preprosta socialna platforma</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    
+    <div class="container">
+        <h2>Živjo, {{ user }}!</h2>
+        <a href="/logout">Logout</a>
+
+        <h3>Nova objava</h3>
+        <form action="/add_post" method="POST" enctype="multipart/form-data">
+            <textarea name="text" placeholder="Kaj razmišljaš?" required></textarea>
+            <br><br>
+            <input type="file" name="image">
+            <br><br>
+            <button type="submit">Objavi</button>
+        </form>
+
+        <hr>
+
+        <h2>Objave uporabnikov</h2>
+        {% for post in posts %}
+            <div class="post">
+                <h3>{{ post.username }}</h3>
+                <p>{{ post.text }}</p>
+
+                {% if post.image %}
+                    <img src="{{ url_for('static', filename=post.image) }}" width="300">
+                {% endif %}
+
+                {% if post.username == user %}
+                    <br><br>
+                    <a href="/delete_post/{{ post.doc_id }}">
+                        <button>Izbriši</button>
+                    </a>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
 </body>
 </html>
