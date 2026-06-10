@@ -33,7 +33,7 @@
 
                 {% if post.username == user %}
                     <br><br>
-                    <a href="/delete_post/{{ post.doc_id }}">
+                    <a href="/delete_post/{{ post['id'] }}">
                         <button>Izbriši</button>
                     </a>
                 {% endif %}
