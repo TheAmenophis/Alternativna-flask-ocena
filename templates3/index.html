@@ -2,9 +2,52 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Poljubna aplikacija</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messenger</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 </head>
 <body>
-    
+    <h1>Messenger</h1>
+    <a href="/logout">Logout</a>
+
+    <hr>
+
+    <h2>Send Message</h2>
+    <form method="POST">
+        <select name="receiver">
+            {% for user in users %}
+                <option value="{{ user.doc_id }}">
+                    {{ user.username }}
+                </option>
+            {% endfor %}
+        </select>
+
+        <input
+            type="text"
+            name="content"
+            placeholder="Message..."
+            required
+        >
+
+        <button type="submit">Send</button>
+    </form>
+
+    <hr>
+
+    <h2>Received Messages</h2>
+    {% for msg in inbox %}
+        {% set sender = users_table.get(doc_id=msg.sender_id) %}
+        
+        <div style="border:1px solid black; margin:10px; padding:10px;">
+            <b>From:</b> {{ sender.username }}
+
+            <br><br>
+
+            {{ msg.content }}
+
+        </div>
+
+    {% endfor %}
+
 </body>
 </html>
