@@ -71,7 +71,7 @@ def saveNote():
 
         notes.insert({'username': session["user"], 'title': data["title"], 'content': data["content"]})
 
-        return {"status": 200}
+        return "OK"
 
 @app.route("/deleteNote", methods=["POST"])
 def deleteNote():
@@ -83,7 +83,7 @@ def deleteNote():
 def logout():
     session.clear()
 
-    return {"status": 200}
+    return "OK"
 
 if __name__ == "__main__":
     app.run(debug=True, port=5000)

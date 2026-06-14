@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins', sans-serif;
+}
+
+body{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    background:linear-gradient(135deg,#667eea,#764ba2);
+}
+
+h1{
+    color:white;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+form{
+    width:400px;
+    max-width:90vw;
+
+    background:white;
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 20px 40px rgba(0,0,0,0.15);
+
+    display:flex;
+    flex-direction:column;
+    gap:15px;
+}
+
+input{
+    padding:14px;
+    border:2px solid #e5e5e5;
+    border-radius:12px;
+    font-size:15px;
+}
+
+input:focus{
+    outline:none;
+    border-color:#667eea;
+}
+
+button{
+    padding:14px;
+    border:none;
+    border-radius:12px;
+
+    background:linear-gradient(135deg,#667eea,#764ba2);
+
+    color:white;
+    font-size:16px;
+    font-weight:600;
+
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(102,126,234,.4);
+}
+
+#nimas_racuna_link{
+    text-align:center;
+    text-decoration:none;
+    color:#667eea;
+    font-weight:500;
+    margin-top:5px;
+}
+
+#nimas_racuna_link:hover{
+    text-decoration:underline;
+}

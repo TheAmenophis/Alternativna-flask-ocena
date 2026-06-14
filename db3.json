@@ -1,0 +1,1 @@
+{"users": {"1": {"username": "admin", "password": "123", "note": ""}, "2": {"username": "aljaz", "password": "aljaz"}}, "messages": {"1": {"sender_id": 1, "receiver_id": 1, "content": "assdasa"}, "2": {"sender_id": 2, "receiver_id": 1, "content": "kvaj zj"}}}
